@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: 'weekly'
+    #- cron: 'weekly'
 
 jobs:
   codeql:
