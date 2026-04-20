@@ -9,7 +9,6 @@ COPY package*.json ./
 
 # Install app dependencies
 RUN npm install
-RUN echo "This build will fail now" && exit 1
 
 # Bundle app source
 COPY . .
