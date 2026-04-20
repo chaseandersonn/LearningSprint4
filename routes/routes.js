@@ -4,17 +4,17 @@ const User = require('../models/users');
 const multer = require('multer');
 const fs = require('fs');
 
-router.get('/contact', (req, res)=>{res.render('contact', {title: 'Contact Us'});});
-router.get('/about', (req, res)=>{res.render('about', {title: 'About Us'});});
-router.get('/add', (req, res)=>{res.render('add_users', {title: 'Add Users'});});
+router.get('/contact', (req, res) => { res.render('contact', { title: 'Contact Us' }); });
+router.get('/about', (req, res) => { res.render('about', { title: 'About Us' }); });
+router.get('/add', (req, res) => { res.render('add_users', { title: 'Add Users' }); });
 
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, './uploads');
     },
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
         cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
     }
 });
@@ -73,7 +73,7 @@ router.post('/add', upload, async (req, res) => {
         await user.save();
         req.session.message = {
             type: 'success',
-            message: 'User added successfully'
+            message: 'User added successfully, small change added.'
         };
     } catch (error) {
         req.session.message = {
