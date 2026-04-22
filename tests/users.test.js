@@ -51,7 +51,7 @@ describe('registerUser Controller Unit Tests', () => {
         await registerUser(req, res);
 
         expect(User.findOne).toHaveBeenCalledWith({ email: 'test@example.com' });
-        expect(res.status).toHaveBeenCalledWith(201);
+        expect(res.status).toHaveBeenCalledWith(401); // Intentionally broken for testing
         expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
             message: 'User registered successfully!',
             user: expect.objectContaining({
