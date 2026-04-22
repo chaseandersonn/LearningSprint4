@@ -28,7 +28,7 @@ jobs:
       pull-requests: write
     steps:
       - name: AI Code Review
-        uses: AleksandrFurmenkovOfficial/ai-code-review@v1
+        uses: AleksandrFurmenkovOfficial/ai-code-review@v0.9
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: ${{ github.repository_owner }}
@@ -36,5 +36,5 @@ jobs:
           pr_number: ${{ github.event.number }}
           ai_provider: 'google'
           google_api_key: ${{ secrets.GOOGLE_API_KEY }}
-          google_model: 'gemini-2.0-flash'
+          google_model: 'gemini-1.5-pro'
 
